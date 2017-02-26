@@ -14,7 +14,7 @@
       <div class="collapse navbar-collapse" id="navigation-example">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="index">
+            <a href="/">
               Home
             </a>
           </li>
