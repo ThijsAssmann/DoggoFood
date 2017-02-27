@@ -18,24 +18,29 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('../resources/assets/css/ripples.min.css') }}">
 
     <link href="{{ URL::asset('../resources/assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('../resources/assets/css/thijs.css') }}" rel="stylesheet">
+
+      <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
   </head>
 
-    <body>
+    <body class="landing-page">
 
       @include('static.header')
         @yield('content')
 
-
     </body>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{ URL::asset('../resources/assets/js/holder.min.js') }}"></script>
+    <script src="{{ URL::asset('../resources/assets/js/material.min.js') }}"></script>
+    <script src="{{ URL::asset('../resources/assets/js/ripples.min.js') }}"></script>
     <script>
       $(function () {
         Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
       });
+
+
+      $.material.init();
     </script>
 
-    <script src="{{ URL::asset('../resources/assets/js/material.min.js') }}"></script>
-    <script src="{{ URL::asset('../resources/assets/js/ripples.min.js') }}"></script>
 </html>
