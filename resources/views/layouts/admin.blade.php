@@ -20,9 +20,9 @@
     <link href="{{ URL::asset('../resources/assets/css/custom.css') }}" rel="stylesheet">
   </head>
 
-    <body>
+    <body class="landing-page">
 
-      @include('static.header')
+      @include('static.admin-header')
         @yield('content')
 
 
