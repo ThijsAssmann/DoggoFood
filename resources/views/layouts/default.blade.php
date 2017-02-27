@@ -24,7 +24,7 @@
 
       @include('static.header')
         @yield('content')
-      @include('static.footer')
+
 
     </body>
     <script
