@@ -125,6 +125,7 @@
 
   <!-- /END THE FEATURETTES -->
 
+
   @include('static.footer')
 
 </div><!-- /.container -->
