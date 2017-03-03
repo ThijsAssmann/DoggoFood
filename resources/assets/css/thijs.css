@@ -133,7 +133,13 @@ body {
   }
 }
 /* Custom css */
-.contactHeader {
-  padding-top: 70px;
-    padding-left: 30px;
+.contactHeader{
+    margin-top: 70px;
+}
+.cartDropdown {
+    margin-top: 20px;
+}
+
+.cartCenter{
+    margin-top: 40px;
 }

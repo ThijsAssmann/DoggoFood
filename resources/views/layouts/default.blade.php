@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('../resources/assets/css/bootstrap-material-design.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('../resources/assets/css/ripples.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css">
 
     <link href="{{ URL::asset('../resources/assets/css/custom.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('../resources/assets/css/thijs.css') }}" rel="stylesheet">
@@ -35,6 +36,7 @@
     <script src="{{ URL::asset('../resources/assets/js/holder.min.js') }}"></script>
     <script src="{{ URL::asset('../resources/assets/js/material.min.js') }}"></script>
     <script src="{{ URL::asset('../resources/assets/js/ripples.min.js') }}"></script>
+    <script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
     <script>
       $(function () {
         Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
@@ -42,6 +44,12 @@
 
 
       $.material.init();
+
+      // Initialize dropdown.js
+      jQuery(function(){
+          jQuery("select").dropdown();
+      });
+
     </script>
 
 
