@@ -23,3 +23,9 @@ Route::get('/home', 'HomeController@index');
 Route::get('/contact', 'ContactController@index');
 
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::get('/brokken', 'ProductController@index');
+
+Route::get('/winkelwagen', 'ShoppingcartController@index');
+
+Route::get('/afrekenen', 'CheckoutController@index');
