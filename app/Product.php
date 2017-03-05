@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Subcategory extends Model
 {
     use Notifiable;
 
@@ -14,7 +14,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'cat_name', 'cat_desc',
+        'prod_name', 'prod_desc', 'prod_price', 'prod_sales_price', 'prod_stock', 'prod_weight', 'prod_weight_unit',
     ];
 
 }

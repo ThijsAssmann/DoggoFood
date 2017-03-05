@@ -14,8 +14,9 @@ class CreateSubcategoryTable extends Migration
     public function up()
     {
         Schema::create('subcategory', function (Blueprint $table) {
-            $table->string('cat_name')->unique();
-            $table->string('cat_desc');
+            $table->increments('id');
+            $table->string('subcat_name', 32)->unique();
+            $table->string('subcat_desc');
             $table->timestamps();
         });
     }

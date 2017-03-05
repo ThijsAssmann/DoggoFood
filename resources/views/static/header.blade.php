@@ -46,9 +46,11 @@
                                 </form>
                             </li>
                         </ul>
-                    <li>  <a href="#">
-                            <i class="material-icons">shopping_cart</i>
-                        </a></li>
+                        <li>  
+                            <a href="#">
+                                <i class="material-icons">shopping_cart</i>
+                            </a>
+                        </li>
                     </li>
                 @endif
             </ul>
