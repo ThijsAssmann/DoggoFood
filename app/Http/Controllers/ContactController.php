@@ -14,7 +14,7 @@ class ContactController extends Controller
 {
 
     /**
-     * Show the application dashboard.
+     * Show the application contact page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,6 +30,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'service' => 'required',
+            'contact_message' => 'required',
+        ]);
+
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['subject'] = $request->subject;

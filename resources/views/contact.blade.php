@@ -8,6 +8,15 @@
             @if(Session::has('success'))
                 <h4>{!! Session::get('success') !!}</h2>
             @endif
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <br>
         </div>
 
@@ -21,13 +30,13 @@
                         <div class="col-md-3">
                             <div class="form-group label-floating">
                                 <label for="name" class="control-label">Naam *</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" required="">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group label-floating">
                                 <label for="email" class="control-label">Email *</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email" required="">
                             </div>
                         </div>
                     </div>
@@ -35,7 +44,7 @@
                         <div class="col-md-5">
                             <div class="form-group label-floating">
                                 <label for="subject" class="control-label">Onderwerp *</label>
-                                <input type="text" class="form-control" id="subject" name="subject">
+                                <input type="text" class="form-control" id="subject" name="subject" required="">
                             </div>
                         </div>
                         <div class="serviceDropdown col-md-3">
@@ -52,7 +61,7 @@
                         <div class="col-md-5">
                         <div class="form-group label-floating">
                             <label for="message" class="control-label">Bericht *</label>
-                            <textarea id="message" class="form-control" name="message"></textarea>
+                            <textarea id="message" class="form-control" name="message" required=""></textarea>
                         </div>
                         </div>
                     </div>

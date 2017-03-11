@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Subcategory extends Model
 {
-    use Notifiable;
+
+    protected $table = 'subcategory';
 
     /**
      * The attributes that are mass assignable.
