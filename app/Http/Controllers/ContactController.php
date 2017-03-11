@@ -6,42 +6,53 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Mail;
 use Validator;
+use Form;
+use Session;
 use Redirect;
 
 class ContactController extends Controller
 {
 
     /**
-     * Show the application dashboard.
+     * Show the application contact page.
      *
      * @return \Illuminate\Http\Response
      */
-public function index()
-{
-return view('contact');
-}
+    public function index()
+    {
+        return view('contact');
+    }
 
-public function create()
-{
-return view('contact');
-}
+    /**
+     * Get results from form and put it into a email.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'service' => 'required',
+            'contact_message' => 'required',
+        ]);
 
-public function store(Request $request)
-{
-$data['name'] = $request->name;
-$data['email'] = $request->email;
-$data['subject'] = $request->subject;
-$data['service'] = $request->service;
-$data['message'] = $request->message;
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['subject'] = $request->subject;
+        $data['service'] = $request->service;
+        $data['contact_message'] = $request->message;
 
-Mail::send('emails.contact', $data, function($message) use ($data)
-{
-$message->from('thijs1assmann@gmail.com', "DoggoFood Support");
-$message->to('thijs1assmann@gmail.com', "DoggoFood Support");
-$message->subject("DoggoFood Support | ".$data['subject']);
-});
+        Mail::send('emails.contact', $data, function($message) use ($data)
+        {
+            $message->from($data['email'], "DoggoFood Support");
+            $message->to('support@doggofood.nl', "DoggoFood Support");
+            $message->subject("DoggoFood Support | ".$data['subject']);
+        });
 
-return Redirect::to('/contact');
+        Session::flash('success', 'Bedankt voor uw email. We nemen zo spoedig mogelijk contact met u op.');
 
-}
+        return Redirect::to('/contact');
+    }
 }
