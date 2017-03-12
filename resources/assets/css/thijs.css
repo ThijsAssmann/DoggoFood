@@ -127,6 +127,11 @@ body {
   }
 }
 
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
 /* Custom css */
 .contactHeader{
     margin-top: 70px;
@@ -137,4 +142,20 @@ body {
 
 .cartCenter{
     margin-top: 40px;
+}
+.prod_title_desc {
+    margin-top:-25px;
+}
+.dropdown_margin {
+    margin-top:-35px;
+}
+.shoppingcart_button_margin{
+    margin-left:90px;
+    margin-top:-55px;
+}
+.top_margin_prod{
+    margin-top:150px;
+}
+.top_margin{
+    margin-top:90px;
 }

@@ -222,3 +222,10 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+/* ROB VERSIE */
+.btn-doggofood {
+    margin: 1px;
+    margin-right:6px;
+    padding: 6px;
+}

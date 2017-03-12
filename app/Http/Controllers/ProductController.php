@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use Redirect;
 
 class ProductController extends Controller
 {
@@ -22,7 +24,25 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(Request $request)
+    public function index(Request $request, $id)
+    {
+
+        $uri = $request->path();
+        if(is_numeric($id) == true ){
+            $product = Product::find($id);
+        } else {
+            return Redirect::back();
+        }
+
+        return view('product', array('product' => $product));
+    }
+
+    /**
+     * Show the application dashboard depends on requested url
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request)
     {
         $uri = $request->path();
 
@@ -33,7 +53,7 @@ class ProductController extends Controller
         } else if($uri == 'training') {
             return view('training');
         } else {
-            return view('index');
+            return Redirect::to('/');
         }
     }
 

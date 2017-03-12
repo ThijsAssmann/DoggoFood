@@ -33,11 +33,11 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 @if(Auth::user()->admin == 1)
-                                <a href="{{URL('/dashboard')}}">
+                                <a href="{{ route('dashboard') }}">
                                     Dashboard
                                 </a>
                                 @endif
-                                <a href="{{URL('/profiel')}}">
+                                <a href="{{ route('profiel') }}">
                                     Mijn Profiel
                                 </a>
                                 <a href="{{ route('logout') }}"
@@ -52,7 +52,7 @@
                             </li>
                         </ul>
                         <li>
-                            <a href="{{URL('/winkelwagen')}}">
+                            <a href="{{ route('winkelwagen') }}">
                                 <i class="material-icons">shopping_cart</i>
                             </a>
                         </li>

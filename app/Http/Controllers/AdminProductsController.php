@@ -11,11 +11,9 @@ use Session;
 
 use App\User;
 use App\Product;
-use App\Category;
 use App\Subcategory;
 
-
-class AdminProductController extends Controller
+class AdminProductsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -32,31 +30,32 @@ class AdminProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
 
-            $product = Product::find($id);
-            $subcategorys = Subcategory::all();
-            $categorys = Category::all();
+                $category = Session::get('category');
+                if($category != '*' && Session::get('category')){
+                    $products = Product::all()->where('cat', '=', $category);
+                } else {
+                    $products = Product::all();
+                }
 
-            return view('dashboard.product', array('product' => $product, 'subcategorys' => $subcategorys, 'categorys' => $categorys));
+            return view('dashboard.products', compact('products'));
         } else {
             return Redirect::to('/');
         }
     }
 
     /**
-     * Update the product.
+     * Get the prefered product category and put it into the session
      *
      * @return Response
      */
-    public function update(Product $product, Request $request) {
-
-        $product = Product::where(['id' => $request->id])->first();
-        $product->update($request->all());
-
-        return back();
+    public function post() {
+        $category = Input::get('category');
+        Session::put('category', $category);
+        return Redirect::back();
     }
 
 }

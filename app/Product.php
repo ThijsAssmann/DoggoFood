@@ -8,14 +8,14 @@ class Product extends Model
 {
 
     protected $table = 'product';
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'prod_name', 'prod_desc', 'prod_price', 'prod_sales_price', 'prod_stock', 'prod_cat', 'prod_subcat', 'prod_weight', 'prod_weight_unit',
+        'name', 'desc', 'price', 'sales_price', 'stock', 'cat', 'subcat', 'weight', 'weight_unit',
     ];
 
 }
