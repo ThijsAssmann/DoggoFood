@@ -29,7 +29,7 @@ class DashboardController extends Controller
         if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
             return view('dashboard');
         } else {
-            return Redirect::back();
+            return Redirect::to('/');
         }
     }
 }

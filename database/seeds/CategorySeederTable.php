@@ -12,18 +12,18 @@ class CategorySeederTable extends Seeder
     public function run()
     {
         DB::table('category')->insert([
-            'cat_name' => 'Brokken',
-            'cat_desc' => 'Honden brokken.',
+            'name' => 'Brokken',
+            'desc' => 'Honden brokken.',
         ]);
 
         DB::table('category')->insert([
-            'cat_name' => 'Snacks',
-            'cat_desc' => 'Honden snacks.',
+            'name' => 'Snacks',
+            'desc' => 'Honden snacks.',
         ]);
 
         DB::table('category')->insert([
-            'cat_name' => 'Training',
-            'cat_desc' => 'Eten speciaal voor training als beloning.',
+            'name' => 'Training',
+            'desc' => 'Eten speciaal voor training als beloning.',
         ]);
     }
 

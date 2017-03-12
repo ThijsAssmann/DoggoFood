@@ -17,22 +17,26 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', 'ContactController@store');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('/producten', 'AdminProductController@index')->name('products');
-Route::post('/producten', 'AdminProductController@post');
+Route::get('dashboard/producten', 'AdminProductsController@index')->name('products');
+Route::post('dashboard/products', 'AdminProductsController@post');
 
-Route::get('/brokken', 'ProductController@index')->name('brokken');
-Route::get('/snacks', 'ProductController@index')->name('snacks');;
-Route::get('/training', 'ProductController@index')->name('training');;
+Route::get('dashboard/product/{id}', 'AdminProductController@index');
+Route::patch('dashboard/product/{id}', 'AdminProductController@update');
 
-Route::get('/winkelwagen', 'ShoppingcartController@index');
+
+Route::get('/product/{id}', 'ProductController@index')->name('product');
+
+Route::get('/brokken', 'ProductController@show')->name('brokken');
+Route::get('/snacks', 'ProductController@show')->name('snacks');
+Route::get('/training', 'ProductController@show')->name('training');
+
+Route::get('/winkelwagen', 'ShoppingcartController@index')->name('winkelwagen');
 
 Route::get('/afrekenen', 'CheckoutController@index');
 
-Route::get('/profiel', 'UserController@index');
+Route::get('/profiel', 'UserController@index')->name('profiel');
 Route::post('/profiel', 'UserController@update');

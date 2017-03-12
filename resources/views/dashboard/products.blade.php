@@ -12,7 +12,7 @@
 
        <h2 class="sub-header">Producten</h2>
        <div>
-           {{ Form::open(array('action' => 'AdminProductController@post', 'method' => 'POST')) }}
+           {{ Form::open(array('action' => 'AdminProductsController@post', 'method' => 'POST')) }}
                {!! Form::select('category',['*'=>'Alles',1 => 'Brokken',2 => 'Snacks',3 => 'Training'], Session::get('category'), array('onchange' => 'submit()','class' => 'fakeinput form-control') ) !!}
            {{ Form::close() }}
        </div>
@@ -26,6 +26,7 @@
                <th>Kortingsprijs</th>
                <th>Gewicht</th>
                <th>Aantal</th>
+               <th>Category</th>
                <th>Subcategory</th>
                <th>Actions</th>
              </tr>
@@ -34,18 +35,21 @@
              @foreach ($products as $product)
              <tr>
                <td>{{$product->id}}</td>
-               <td>{{$product->prod_name}}</td>
-               <td>{{$product->prod_price}}</td>
-               <td>{{$product->prod_sales_price}}</td>
-               <td>{{$product->prod_weight}} {{$product->prod_weight_unit}}</td>
-               <td>{{$product->prod_stock}}</td>
+               <td>{{$product->name}}</td>
+               <td>{{$product->price}}</td>
+               <td>{{$product->sales_price}}</td>
+               <td>{{$product->weight}} {{$product->weight_unit}}</td>
+               <td>{{$product->stock}}</td>
                <td>
-                   {{$product->prod_subcat}}
+                   {{$product->cat}}
                </td>
                <td>
-                   <button class="btn-raised btn-primary">Bekijken<div class="ripple-container"></div></button>
-                   <button class="btn-raised btn-warning">Aanpassen<div class="ripple-container"></div></button>
-                   <button class="btn-raised btn-danger">Verwijderen<div class="ripple-container"></div></button>
+                   {{$product->subcat}}
+               </td>
+               <td>
+                   <a class="btn btn-raised btn-primary btn-doggofood" href="{{ URL::to('product/' . $product->id) }}">Bekijken<div class="ripple-container"></div></a>
+                   <a class="btn btn-raised btn-warning btn-doggofood" href="product/{{$product->id}}">Aanpassen<div class="ripple-container"></div></button>
+                   <a class="btn btn-raised btn-danger btn-doggofood">Verwijderen<div class="ripple-container"></div></a>
                </td>
              </tr>
              @endforeach

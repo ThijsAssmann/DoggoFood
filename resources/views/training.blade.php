@@ -7,7 +7,7 @@
             <br>
         </div>
         <div class="row">
-            <div class="col-lg-6"><blockquote>
+            <div class="col-lg-12"><blockquote>
                     <p class="lead text-primary">Het kan soms moeilijk zijn om een snack te vinden die u aan uw huisdier kan geven tijdens het trainen. Hier bij DoggoFood willen wij een goed assortiment
                    dingesen zodat uw een goed en goedkopen snack aan uw huisdier kan geven ter beloning </p></blockquote> <br>
             </div>

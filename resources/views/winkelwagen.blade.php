@@ -4,10 +4,8 @@
     <div class="container">
         <div style=margin-top:90px>
             <h2>Winkelwagentje</h2>
-            <br>
         </div>
         <div class="container">
-            <hr>
             <div class="row">
                 <table class="table table-striped table-hover ">
                     <thead>
@@ -60,31 +58,26 @@
                 <div class="progress">
                     <div class="progress-bar progress-bar-info" style="width: 0%"></div>
                 </div>
-                <hr>
                 <div class="row">
                     <div class="col-lg-2 col-lg-offset-7">Totaal artikelen</div>
                     <div class="col-lg-1">&euro;16,00</div>
                 </div>
-                <br>
                 <div class="row">
                     <div class="col-lg-2 col-lg-offset-7">Verzendkosten</div>
                     <div class="col-lg-1">&euro;5,00</div>
                 </div>
-                <br>
                 <div class="row">
                     <div class="col-lg-2 col-lg-offset-7"><b>Totaal</b></div>
                     <div class="col-lg-1">&euro;21,00</div>
                 </div>
             </div>
-            <br>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-7">
-                <a href="#" class="btn btn-raised btn-primary">Bestellen</a>
-                <a href="#" class="btn btn-raised btn-danger">Annuleren</a>
+                    <a href="#" class="btn btn-raised btn-primary">Bestellen</a>
+                    <a href="#" class="btn btn-raised btn-danger">Annuleren</a>
                 </div>
             </div>
         </div>
-        <hr>
         @include('static.footer')
     </div>
 @endsection

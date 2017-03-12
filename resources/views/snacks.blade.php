@@ -7,7 +7,7 @@
             <br>
         </div>
         <div class="row">
-            <div class="col-lg-6"><blockquote>
+            <div class="col-lg-12"><blockquote>
                     <p class="lead text-primary">In de winkel zijn veel verschillende snacks te koop. Toch is het vaak moeilijk om snacks te vinden waar je echt tevreden mee bent.
                         Hier bij DoggoFood vinden wij het belangrijk dat uw huisdier de juiste voeding krijgt. Groot, klein, jong of oud wij hebben wat uw huisdier nodig heeft.</p></blockquote> <br>
             </div>
