@@ -47,9 +47,11 @@
                    {{$product->subcat}}
                </td>
                <td>
-                   <a class="btn btn-raised btn-primary btn-doggofood" href="{{ URL::to('product/' . $product->id) }}">Bekijken<div class="ripple-container"></div></a>
-                   <a class="btn btn-raised btn-warning btn-doggofood" href="product/{{$product->id}}">Aanpassen<div class="ripple-container"></div></button>
-                   <a class="btn btn-raised btn-danger btn-doggofood">Verwijderen<div class="ripple-container"></div></a>
+                   <a class="btn btn-raised btn-primary btn-doggofood" href="{{ URL::to('product/' . $product->id) }}">Bekijken</a>
+                   <a class="btn btn-raised btn-warning btn-doggofood" href="product/{{$product->id}}">Aanpassen</a>
+                   {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['destroy', $product->id], 'style' => 'display: inline-block;']) }}
+                       {{ Form::submit('Verwijderen', ['class' => 'btn btn-raised btn-danger btn-doggofood']) }}
+                   {{ Form::close() }}
                </td>
              </tr>
              @endforeach

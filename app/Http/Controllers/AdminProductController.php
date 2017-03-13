@@ -52,10 +52,22 @@ class AdminProductController extends Controller
      * @return Response
      */
     public function update(Product $product, Request $request) {
+        if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
+            $product = Product::where(['id' => $request->id])->first();
+            $product->update($request->all());
+        }
+        return back();
+    }
 
-        $product = Product::where(['id' => $request->id])->first();
-        $product->update($request->all());
-
+    /**
+     * destroy the product.
+     *
+     * @return Response
+     */
+    public function destroy(Product $product, Request $request) {
+        if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
+            $product = Product::where('id', $request->id)->delete();
+        }
         return back();
     }
 

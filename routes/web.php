@@ -20,14 +20,19 @@ Auth::routes();
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', 'ContactController@store');
 
+/* Dashboard - Admin only */
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('dashboard/producten', 'AdminProductsController@index')->name('products');
 Route::post('dashboard/products', 'AdminProductsController@post');
 
 Route::get('dashboard/product/{id}', 'AdminProductController@index');
 Route::patch('dashboard/product/{id}', 'AdminProductController@update');
+Route::delete('dashboard/product/{id}', 'AdminProductController@destroy')->name('destroy');
 
+Route::get('/dashboard/users', 'AdminUsersController@index')->name('users');
 
+Route::get('/dashboard/categorys', 'AdminCategorysController@index')->name('categorys');
+/**************************/
 Route::get('/product/{id}', 'ProductController@index')->name('product');
 
 Route::get('/brokken', 'ProductController@show')->name('brokken');
