@@ -19,6 +19,7 @@
                <th>Naam</th>
                <th>Email</th>
                <th>Admin</th>
+               <th>Acties</th>
              </tr>
            </thead>
            <tbody>
@@ -28,6 +29,9 @@
                <td>{{$user->name}}</td>
                <td>{{$user->email}}</td>
                <td>{{$user->admin}}</td>
+               <td>
+                   <a class="btn btn-raised btn-primary btn-doggofood" href="#">Bestellingen</a>
+               </td>
              </tr>
              @endforeach
            </tbody>
