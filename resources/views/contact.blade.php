@@ -6,7 +6,7 @@
             <h2>Contact</h2>
             <h4>Neem contact met ons op</h4>
             @if(Session::has('success'))
-                <h4>{!! Session::get('success') !!}</h2>
+                <h4>{!! Session::get('success') !!}</h4>
             @endif
             @if (count($errors) > 0)
                 <div class="alert alert-danger">

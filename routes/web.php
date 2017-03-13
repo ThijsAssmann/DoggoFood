@@ -38,6 +38,7 @@ Route::get('/product/{id}', 'ProductController@index')->name('product');
 Route::get('/brokken', 'ProductController@show')->name('brokken');
 Route::get('/snacks', 'ProductController@show')->name('snacks');
 Route::get('/training', 'ProductController@show')->name('training');
+Route::get('/about', 'AboutController@index');
 
 Route::get('/winkelwagen', 'ShoppingcartController@index')->name('winkelwagen');
 
