@@ -37,6 +37,8 @@ class AdminProductsController extends Controller
                 $category = Session::get('category');
                 if($category != '*' && Session::get('category')){
                     $products = Product::all()->where('cat', '=', $category);
+                } else if ($category == '*') {
+                    $products = Product::all();
                 } else {
                     $products = Product::all();
                 }

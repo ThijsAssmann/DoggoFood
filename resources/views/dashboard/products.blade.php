@@ -9,11 +9,9 @@
 
      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
        <h1 class="page-header">Producten</h1>
-
-       <h2 class="sub-header">Producten</h2>
        <div>
            {{ Form::open(array('action' => 'AdminProductsController@post', 'method' => 'POST')) }}
-               {!! Form::select('category',['*'=>'Alles',1 => 'Brokken',2 => 'Snacks',3 => 'Training'], Session::get('category'), array('onchange' => 'submit()','class' => 'fakeinput form-control') ) !!}
+               {!! Form::select('category',['*'=>'Alles','Brokken' => 'Brokken','Snacks' => 'Snacks','Training' => 'Training'], Session::get('category'), array('onchange' => 'submit()','class' => 'fakeinput form-control') ) !!}
            {{ Form::close() }}
        </div>
        <div class="table-responsive">

@@ -9,8 +9,6 @@
 
      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
        <h1 class="page-header">Product</h1>
-
-       <h2 class="sub-header">Product</h2>
            <div class="container">
                <div class="jumbotron">
                <div class="row">

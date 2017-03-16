@@ -7,6 +7,11 @@ body {
   color: #5a5a5a;
 }
 
+/* CUSTOMIZE THE DASHBOARD
+-------------------------------------------------- */
+.main {
+  margin-top: 60px;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
