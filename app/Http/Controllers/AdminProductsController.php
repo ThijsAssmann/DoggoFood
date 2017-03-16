@@ -43,7 +43,7 @@ class AdminProductsController extends Controller
                     $products = Product::all();
                 }
 
-            return view('dashboard.products', compact('products'));
+            return view('dashboard.product.products', compact('products'));
         } else {
             return Redirect::to('/');
         }

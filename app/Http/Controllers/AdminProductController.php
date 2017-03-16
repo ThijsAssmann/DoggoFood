@@ -40,7 +40,7 @@ class AdminProductController extends Controller
             $subcategorys = Subcategory::all();
             $categorys = Category::all();
 
-            return view('dashboard.product', array('product' => $product, 'subcategorys' => $subcategorys, 'categorys' => $categorys));
+            return view('dashboard.product.product', array('product' => $product, 'subcategorys' => $subcategorys, 'categorys' => $categorys));
         } else {
             return Redirect::to('/');
         }
