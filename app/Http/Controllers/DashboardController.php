@@ -27,7 +27,7 @@ class DashboardController extends Controller
     public function index()
     {
         if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
-            return view('dashboard');
+            return view('dashboard.overview');
         } else {
             return Redirect::to('/');
         }

@@ -1,8 +1,17 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="container">
-        <div style=margin-top:90px>
+    <div class="main container">
+        <div class="row">
+            <div class="col-lg-12 bread">
+                <nav class="breadcrumb">
+                  <a class="breadcrumb-item" href="{{ Route('index') }}">Home</a> /
+                  <span class="breadcrumb-item active">Mijn profiel</span>
+                  <a href="{{ URL::previous() }}" class="pull-right">< Terug</a>
+                </nav>
+            </div>
+        </div>
+        <div>
             <h2>Mijn profiel</h2>
             @if (count($errors) > 0)
                 <div class="alert alert-danger">

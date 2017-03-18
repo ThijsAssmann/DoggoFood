@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Category;
-use App\Subcategory;
 use Input;
 use Redirect;
+use App\Order;
+use App\User;
 
-class AdminCategorysController extends Controller
+class AdminOrderController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -28,9 +28,17 @@ class AdminCategorysController extends Controller
      */
     public function index()
     {
-        $categorys = Category::all();
-        $subcategorys = Subcategory::all();
-        return view('dashboard.categorys', compact('categorys','subcategorys'));
+        $orders = Order::all();
+        return view('dashboard.order.overview', compact('orders'));
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request)
+    {
+
+    }
 }

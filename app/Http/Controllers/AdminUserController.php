@@ -8,7 +8,7 @@ use App\User;
 use Input;
 use Redirect;
 
-class AdminUsersController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Create a new controller instance.

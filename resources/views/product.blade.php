@@ -1,31 +1,49 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="container">
-        <div class="top_margin_prod row">
-            <br>
+    <div class="main container">
+        <div class="row">
+            <div class="col-lg-12 bread">
+                <nav class="breadcrumb">
+                  <a class="breadcrumb-item" href="{{ Route('index') }}">Home</a> /
+                  <a class="breadcrumb-item" href="{{URL::to('/category')}}/{{strtolower($product->cat)}}">{{$product->cat}}</a> /
+                  <span class="breadcrumb-item active">Product</span>
+                  <a href="{{ URL::previous() }}" class="pull-right">< Terug</a>
+                </nav>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-2">
             <img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="150" height="150">
             </div>
-            <div class="prod_title_desc col-lg-3">
+            <div class="prod_title_desc col-lg-8">
                 <h2>{{$product->name}}</h2>
                 <p>{{$product->desc}}</p><br>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-1 col-lg-offset-2"><p>Prijs</p>{{$product->price}}</div>
-            <div class="dropdown_margin col-lg-1">
-                <select id="Amount" class="form-control">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <div class="shoppingcart_button_margin"><a href="#" class="btn btn-raised btn-primary">Voeg toe aan  <i class="material-icons">add_shopping_cart</i></a></div>
-            </div>
+
+            {!! Form::open(array('action' => 'CartController@store','class' => 'nobottommargin', 'method' => 'post')) !!}
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group label-floating">
+                                <span>Prijs: {{$product->price}} per {{$product->weight_unit}}</span>
+                            </div>
+                            <div class="form-group label-floating">
+                                <label for="amount" class="control-label">Aantal</label>
+                                <input type="number" class="form-control" id="amount" name="amount" required="">
+                                <input type="number" class="form-control hidden" id="id" name="id" required="" value="{{$product->id}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="shoppingcart_button_margin">
+                            <button class="btn btn-raised btn-primary">Voeg toe aan  <i class="material-icons">add_shopping_cart</i></button>
+                        </div>
+                    </div>
+                </div>
+            {!! Form::close() !!}
         </div>
         <br><br>
         @include('static.footer')

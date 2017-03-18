@@ -12,10 +12,22 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="{{ strpos(Request::path(), '/') !== false ? 'active' : '' }}"><a href="{{ Route('index') }}">Home</a></li>
-                <li class="{{ strpos(Request::path(), 'brokken') !== false ? 'active' : '' }}"><a href="{{ Route('brokken') }}">Brokken</a></li>
-                <li class="{{ strpos(Request::path(), 'snacks') !== false ? 'active' : '' }}"><a href="{{ Route('snacks') }}">Snacks</a></li>
-                <li class="{{ strpos(Request::path(), 'training') !== false ? 'active' : '' }}"><a href="{{ Route('training') }}">Training</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Categorieën <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            @foreach ($cat_list as $cat_item)
+                                <a href="{{url('/category')}}{{'/'.strtolower($cat_item->name)}}">{{$cat_item->name}}</a>
+                            @endforeach
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="{{ strpos(Request::path(), 'contact') !== false ? 'active' : '' }}"><a href="{{ Route('contact') }}">Contact</a></li>
+                <li class="{{ strpos(Request::path(), 'about') !== false ? 'active' : '' }}"><a href="{{ Route('about') }}">Over ons</a></li>
                 <form class="navbar-form navbar-right">
                     <input type="text" class="form-control" placeholder="Search...">
                 </form>
