@@ -10,37 +10,54 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('index');
-})->name('index');
-
 Auth::routes();
+
+Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', 'ContactController@store');
 
 /* Dashboard - Admin only */
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('dashboard/producten', 'AdminProductsController@index')->name('products');
-Route::post('dashboard/products', 'AdminProductsController@post');
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('producten', 'AdminProductController@index')->name('products');
+    Route::post('products', 'AdminProductController@post');
 
-Route::get('dashboard/product/{id}', 'AdminProductController@index');
-Route::patch('dashboard/product/{id}', 'AdminProductController@update');
-Route::delete('dashboard/product/{id}', 'AdminProductController@destroy')->name('destroy');
+    Route::get('product/edit/{id}', 'AdminProductController@show');
+    Route::patch('product/update/{id}', 'AdminProductController@update');
+    Route::delete('product/{id}', 'AdminProductController@destroy')->name('destroy');\
+    Route::get('product/create', 'AdminProductController@create');
+    Route::post('product/store', 'AdminProductController@store');
 
-Route::get('/dashboard/users', 'AdminUsersController@index')->name('users');
+    Route::get('users', 'AdminUserController@index')->name('users');
 
-Route::get('/dashboard/categorys', 'AdminCategorysController@index')->name('categorys');
+    Route::get('categorys', 'AdminCategoryController@index')->name('categorys');
+    Route::patch('category/update/{id}', 'AdminCategoryController@update');
+    Route::get('category/edit/{id}', 'AdminCategoryController@show');
+    Route::delete('category/{id}', 'AdminCategoryController@destroy')->name('category_destroy');
+    Route::get('category/create', 'AdminCategoryController@create');
+    Route::post('category/store', 'AdminCategoryController@store');
+
+    Route::get('subcategory/edit/{id}', 'AdminSubcategoryController@index');
+    Route::patch('subcategory/update/{id}', 'AdminSubcategoryController@update');
+    Route::get('subcategory/edit/{id}', 'AdminSubcategoryController@show');
+    Route::delete('subcategory/{id}', 'AdminSubcategoryController@destroy')->name('subcategory_destroy');
+    Route::get('subcategory/create', 'AdminSubcategoryController@create');
+    Route::post('subcategory/store', 'AdminSubcategoryController@store');
+
+    Route::get('orders', 'AdminOrderController@index')->name('orders');
+});
 /**************************/
-Route::get('/product/{id}', 'ProductController@index')->name('product');
+Route::get('/product/{id}', 'ProductController@show')->name('product');
 
-Route::get('/brokken', 'ProductController@show')->name('brokken');
-Route::get('/snacks', 'ProductController@show')->name('snacks');
-Route::get('/training', 'ProductController@show')->name('training');
-Route::get('/about', 'AboutController@index');
+Route::get('/category/{slug}', 'CategoryController@show');
+Route::get('header', 'CategoryController@all');
 
-Route::get('/winkelwagen', 'ShoppingcartController@index')->name('winkelwagen');
+Route::get('/about', 'AboutController@index')->name('about');
+
+Route::get('/winkelwagen', 'CartController@index')->name('winkelwagen');
+Route::post('/winkelwagen/store', 'CartController@store');
+
 
 Route::get('/afrekenen', 'CheckoutController@index');
 

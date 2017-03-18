@@ -9,12 +9,20 @@
 
      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
        <h1 class="page-header">Product</h1>
-
-       <h2 class="sub-header">Product</h2>
            <div class="container">
                <div class="jumbotron">
+                   {{-- HTML::ul($errors->all()) --}}
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                <div class="row">
-                    <form method="post" action="{{ URL::to('dashboard/product/' . $product->id) }}">
+                    <form method="post" action="{{ URL::to('dashboard/product/update/' . $product->id) }}">
                     {{ method_field('patch') }}
                     {{ csrf_field() }}
                         <div class="col-md-8 col-md-offset-2">
@@ -29,7 +37,7 @@
                                <div class="col-md-4">
                                    <div class="form-group label-floating">
                                        <label for="weight" class="control-label">Gewicht</label>
-                                       <input type="text" class="form-control" id="weight" name="weight" required="" value="{{$product->weight}}">
+                                       <input type="number" class="form-control" id="weight" name="weight" required="" value="{{$product->weight}}" step="0.01">
                                    </div>
                                </div>
                                <div class="col-md-4">
@@ -49,13 +57,13 @@
                                <div class="col-md-5">
                                    <div class="form-group label-floating">
                                        <label for="price" class="control-label">Prijs</label>
-                                       <input type="number" class="form-control" id="price" name="price" required="" value="{{$product->price}}">
+                                       <input type="number" class="form-control" id="price" name="price" required="" value="{{$product->price}}"  step="0.01">
                                    </div>
                                </div>
                                <div class="col-md-5">
                                    <div class="form-group label-floating">
                                        <label for="sales_price" class="control-label">Kortingsprijs</label>
-                                       <input type="number" class="form-control" id="sales_price" name="sales_price" required="" value="{{$product->sales_price}}">
+                                       <input type="number" class="form-control" id="sales_price" name="sales_price" required="" value="{{$product->sales_price}}"  step="0.01">
                                    </div>
                                </div>
                                <div class="serviceDropdown col-md-4">
