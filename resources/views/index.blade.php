@@ -17,32 +17,22 @@
       </div>
     </div>
   </div>
-</div><!-- /.carousel -->
+</div>
 
 <div class="container marketing">
   <div class="row">
-    <div class="col-lg-4">
-      <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-      <h2>Varkensoren</h2>
-      <p>10-25 stuks.<br> Van deze heerlijke varkensoren gaat uw hond zeker knorren van blijdschap</p>
-      <p><a class="btn btn-default" href="#" role="button">Bekijk details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-      <h2>Gedroogde pens</h2>
-      <p>10-25 stuks.<br> Deze geurloze paardenpens is een lekkere en gezonde snack voor iedere hond.</p>
-      <p><a class="btn btn-default" href="#" role="button">Bekijk details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-      <h2>Zelfgemaakte koekjes</h2>
-      <p>50-75 stuks <br>Onze zelfgemaakte hondenkoekjes zijn de perfecte manier om uw hond te laten zien dat je van ze houdt.</p>
-      <p><a class="btn btn-default" href="#" role="button">Bekijk details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-  </div><!-- /.row -->
+      @foreach ($products as $product)
+          <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>{{$product->name}}</h2>
+            <p>{{$product->desc}}</p>
+            <p><a class="btn btn-default" href="{{ URL::to('product/' . $product->id) }}" role="button">Bekijk details &raquo;</a></p>
+          </div>
+      @endforeach
+  </div>
 
   @include('static.footer')
 
-</div><!-- /.container -->
+</div>
 
 @endsection

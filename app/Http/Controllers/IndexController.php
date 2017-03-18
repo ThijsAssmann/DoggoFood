@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-class ShoppingcartController extends Controller
+use App\Product;
+
+class IndexController extends Controller
 {
 
     /**
@@ -13,6 +15,7 @@ class ShoppingcartController extends Controller
 
     public function index()
     {
-        return view('winkelwagen');
+        $products = Product::all()->random(3);
+        return view('index', compact('products'));
     }
 }
