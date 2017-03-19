@@ -8,6 +8,7 @@ use Auth;
 use Input;
 use Validator;
 use Session;
+use App\User;
 use App\Cart;
 use App\Product;
 
@@ -16,14 +17,14 @@ class CartController extends Controller
 {
 
     /**
-     * Show the application dashboard.
+     * Show the current cart
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $carts = Cart::All()->where('user_id', '=', Auth::user()->id);
-        return view('winkelwagen', compact('carts'));
+        $user = User::with('carts.containsProduct')->find(Auth::user()->id);
+        return view('winkelwagen', compact('user'));
     }
 
 

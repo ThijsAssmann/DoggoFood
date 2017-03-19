@@ -25,11 +25,14 @@ Route::group(['prefix' => 'dashboard'], function () {
 
     Route::get('product/edit/{id}', 'AdminProductController@show');
     Route::patch('product/update/{id}', 'AdminProductController@update');
-    Route::delete('product/{id}', 'AdminProductController@destroy')->name('destroy');\
+    Route::delete('product/{id}', 'AdminProductController@destroy')->name('destroy');
     Route::get('product/create', 'AdminProductController@create');
     Route::post('product/store', 'AdminProductController@store');
 
     Route::get('users', 'AdminUserController@index')->name('users');
+    Route::delete('users/{id}', 'AdminUserController@destroy')->name('destroy');
+    Route::get('user/edit/{id}', 'AdminUserController@show');
+    Route::patch('user/update/{id}', 'AdminUserController@updateUser');
 
     Route::get('categorys', 'AdminCategoryController@index')->name('categorys');
     Route::patch('category/update/{id}', 'AdminCategoryController@update');
