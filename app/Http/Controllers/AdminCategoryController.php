@@ -62,7 +62,7 @@ class AdminCategoryController extends Controller
 
             $this->validate($request, [
                 'name' => 'required|max:32',
-                'desc' => 'required|max:255',
+                'desc' => 'required|max:510',
             ]);
 
             $category = Category::where(['id' => $request->id])->first();
@@ -103,7 +103,7 @@ class AdminCategoryController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:32',
-            'desc' => 'required|max:255',
+            'desc' => 'required|max:510',
         ]);
 
         Category::create(

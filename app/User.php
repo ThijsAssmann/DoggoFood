@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'street' , 'street_number', 'zipcode', 'city', 'country', 'state',
+        'name', 'email', 'password', 'street' , 'street_number', 'zipcode', 'city', 'country', 'state', 'admin',
     ];
 
     /**
@@ -26,4 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'admin',
     ];
+
+    /**
+     * Get the products record associated with the cart (user).
+     */
+    public function carts()
+    {
+        return $this->hasMany('App\Cart');
+    }
+
 }

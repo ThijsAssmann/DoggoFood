@@ -29,6 +29,10 @@
                <td>{{$user->admin}}</td>
                <td>
                    <a class="btn btn-raised btn-primary btn-doggofood" href="#">Bestellingen</a>
+                   <a class="btn btn-raised btn-warning btn-doggofood" href="{{ URL::to('dashboard/user/edit/' . $user->id) }}">Aanpassen</a>
+                   {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['destroy', $user->id], 'style' => 'display: inline-block;']) }}
+                   {{ Form::submit('Verwijderen', ['class' => 'btn btn-raised btn-danger btn-doggofood']) }}
+                   {{ Form::close() }}
                </td>
              </tr>
              @endforeach
