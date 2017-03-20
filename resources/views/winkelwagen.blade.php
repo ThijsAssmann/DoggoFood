@@ -23,6 +23,7 @@
                             <th>Beschrijving</th>
                             <th>Aantal</th>
                             <th>Prijs</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +44,11 @@
                                 <p class="cartCenter">
                                     &euro;{{$cart->totalPrice}}
                                 </p>
+                            </td>
+                            <td>
+                                {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['destroy', $cart->id], 'style' => 'display: inline-block;']) }}
+                                {{ Form::submit('Verwijderen', ['class' => 'btn btn-raised btn-danger btn-doggofood cartDeleteCenter']) }}
+                                {{ Form::close() }}
                             </td>
                         </tr>
                         @endforeach
