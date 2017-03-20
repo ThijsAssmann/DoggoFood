@@ -29,7 +29,7 @@
                     <img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
                     <h2>{{$product->name}}</h2>
                 </a>
-                <p>{{$product->weight}} {{$product->weight_unit}}<br>Prijs: &euro;{{$product->price}}</p>
+                <p>{{$product->weight}} {{$product->weight_unit}}<br>Prijs: &euro;{{str_replace(".", ",", $product->price)}}</p>
             </div>
 
         @endforeach

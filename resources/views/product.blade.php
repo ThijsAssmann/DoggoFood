@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="form-group label-floating">
-                                <span>Prijs: {{$product->price}} per {{$product->weight_unit}}</span>
+                                <span>Prijs: {{str_replace(".", ",", $product->price)}} per {{$product->weight_unit}}</span>
                             </div>
                             <div class="form-group label-floating">
                                 <label for="amount" class="control-label">Aantal</label>

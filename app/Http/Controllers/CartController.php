@@ -35,8 +35,9 @@ class CartController extends Controller
             'id' => 'required|numeric',
         ]);
 
-        $product = Product::find($request->id)->first();
-        $totalPrice = ($request->amount*$product->price);
+        $product = Product::all()->where('id','=',$request->id)->first();
+
+        $totalPrice = number_format(($request->amount*$product->price), 2, ',', '.');
 
         Cart::create([
             'user_id' => Auth::user()->id,

@@ -19,9 +19,9 @@ class CreateOrderTable extends Migration
             $table->string('items');
             $table->string('count');
             $table->string('totalPrice')->comment('Product prices excl taxes');
-            $table->string('transaction_id');
+            $table->string('transaction_id')->nullable();
             $table->string('statusCode');
-            $table->string('shipping_id');
+            $table->string('shipping_id')->nullable();
             $table->timestamps();
         });
     }
