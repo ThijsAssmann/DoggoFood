@@ -33,7 +33,7 @@
                             </td>
                             <td class="col-lg-2">
                                 <p class="cartCenter">
-                                    {{$cart->containsProduct[0]->name}} stuks
+                                    {{$cart->containsProduct[0]->name}}
                                 </p>
                             </td>
                             <td class="col-lg-1">
