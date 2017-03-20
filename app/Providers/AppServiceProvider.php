@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Category;
 use App\Subcategory;
+use Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,8 +17,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = Category::all();
-        View::share('cat_list', $categories);
+        if(Schema::hasTable('category')){
+          $categories = Category::all();
+          View::share('cat_list', $categories);
+        }
     }
 
     /**

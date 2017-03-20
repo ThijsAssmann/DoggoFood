@@ -66,7 +66,7 @@ class AdminSubcategoryController extends Controller
 
             $this->validate($request, [
                 'name' => 'required|max:32',
-                'desc' => 'required|max:255',
+                'desc' => 'required|max:510',
             ]);
 
             $subcategory = Subcategory::where(['id' => $request->id])->first();
@@ -107,7 +107,7 @@ class AdminSubcategoryController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:32',
-            'desc' => 'required|max:255',
+            'desc' => 'required|max:510',
         ]);
 
         Subcategory::create(

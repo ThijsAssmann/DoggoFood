@@ -17,4 +17,12 @@ class Cart extends Model
         'user_id', 'product_id', 'count', 'totalPrice'
     ];
 
+    /**
+     * Get the products record associated with the cart (user).
+     */
+    public function containsProduct()
+    {
+        return $this->hasMany('App\Product', 'id', 'product_id');
+    }
+
 }
