@@ -28,9 +28,9 @@
 
                 <li class="{{ strpos(Request::path(), 'contact') !== false ? 'active' : '' }}"><a href="{{ Route('contact') }}">Contact</a></li>
                 <li class="{{ strpos(Request::path(), 'about') !== false ? 'active' : '' }}"><a href="{{ Route('about') }}">Over ons</a></li>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                </form>
+                {{ Form::open(array('route' => 'search_products', 'method' => 'post', 'class' => 'navbar-form navbar-right')) }}
+                    {!! Form::text('search', '', array('class' => 'form-control', ' placeholder' => 'Zoeken..')) !!}
+                {{ Form::close() }}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())

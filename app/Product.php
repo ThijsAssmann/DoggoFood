@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Product extends Model
 {
 
@@ -17,5 +18,5 @@ class Product extends Model
     protected $fillable = [
         'name', 'desc', 'price', 'sales_price', 'stock', 'cat', 'subcat', 'weight', 'weight_unit',
     ];
-    
+
 }
