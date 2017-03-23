@@ -40,15 +40,17 @@ class SearchCatalogController extends Controller
     {
         $products = Product::query();
 
-        if(!(is_numeric($request->search))) {
+        if(strpos($request->search, ',') !== false ) {
             $products = $products
-                ->where('name', 'LIKE', '%'.$request->search.'%')
-                ->orWhere('desc', 'LIKE', '%'.$request->search.'%');
+                ->where('price', '=', str_replace(',', '.', ($request->search)));
+        } else if (is_numeric($request->search) == false) {
+          $products = $products
+              ->where('name', 'LIKE', '%'.$request->search.'%')
+              ->orWhere('desc', 'LIKE', '%'.$request->search.'%');
         } else {
             $products = $products
                 ->where('price', '=', $request->search);
         }
-
         $products = $products->paginate(6);
         return view('resultaten', compact('products'));
     }
