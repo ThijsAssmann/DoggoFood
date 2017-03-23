@@ -17,6 +17,7 @@ class CreateProductTable extends Migration
             $table->increments('id');
             $table->string('name', 64);
             $table->longText('desc');
+            $table->longText('picture')->nullable();
             $table->decimal('price', 10, 2);
             $table->decimal('sales_price', 10 , 2);
             $table->string('stock')->comment('Amount of products in stock');
