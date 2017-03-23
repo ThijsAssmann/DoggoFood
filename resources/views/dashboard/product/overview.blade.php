@@ -47,7 +47,7 @@
                <td>
                    <a class="btn btn-raised btn-primary btn-doggofood" href="{{ URL::to('product/' . $product->id) }}">Bekijken</a>
                    <a class="btn btn-raised btn-warning btn-doggofood" href="product/edit/{{$product->id}}">Aanpassen</a>
-                   {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['destroy', $product->id], 'style' => 'display: inline-block;']) }}
+                   {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['destroy_product', $product->id], 'style' => 'display: inline-block;']) }}
                        {{ Form::submit('Verwijderen', ['class' => 'btn btn-raised btn-danger btn-doggofood']) }}
                    {{ Form::close() }}
                </td>
