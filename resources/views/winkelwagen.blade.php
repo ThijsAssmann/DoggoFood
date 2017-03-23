@@ -46,7 +46,11 @@
                                 </p>
                             </td>
                             <td>
-                                {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['destroy', $cart->id], 'style' => 'display: inline-block;']) }}
+                                {{ Form::open(['id' => 'update','method' => 'UPDATE', 'route' => ['cart_destroy', $cart->id], 'style' => 'display: inline-block;']) }}
+                                {{ Form::submit('Aanpassen', ['class' => 'btn btn-raised btn-primary btn-doggofood cartDeleteCenter']) }}
+                                {{ Form::close() }}
+
+                                {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['cart_destroy', $cart->id], 'style' => 'display: inline-block;']) }}
                                 {{ Form::submit('Verwijderen', ['class' => 'btn btn-raised btn-danger btn-doggofood cartDeleteCenter']) }}
                                 {{ Form::close() }}
                             </td>

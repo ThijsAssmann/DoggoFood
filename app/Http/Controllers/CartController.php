@@ -70,7 +70,22 @@ class CartController extends Controller
         Cart::remove($id);
         return redirect('cart')->withSuccessMessage('Item has been removed!');
     }
+    */
+    public function update(Cart $cart, Request $request){
+        if (User::where(['email' => Auth::User()->email])->first()){
+            $cart = Cart::where(['id' => $request->id, 'user_id' => Auth::User()->id])->update();
+        }
+        return Redirect::to('/winkelwagen');
+    }
 
+    public function destroy(Cart $cart, Request $request) {
+        // dd($cart);
+        if (User::where(['email' => Auth::User()->email])->first()){
+            $cart = Cart::where(['id' => $request->id, 'user_id' => Auth::User()->id])->delete();
+        }
+        return Redirect::to('/winkelwagen');
+    }
+/*
     public function emptyCart()
     {
         Cart::destroy();

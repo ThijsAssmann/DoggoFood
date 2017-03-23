@@ -60,7 +60,7 @@ Route::get('/about', 'AboutController@index')->name('about');
 
 Route::get('/winkelwagen', 'CartController@index')->name('winkelwagen');
 Route::post('/winkelwagen/store', 'CartController@store');
-
+Route::delete('winkelwagen/{id}', 'CartController@destroy')->name('cart_destroy');
 
 Route::get('/afrekenen', 'CheckoutController@index');
 
