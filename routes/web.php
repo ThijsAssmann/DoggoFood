@@ -62,7 +62,8 @@ Route::get('/winkelwagen', 'CartController@index')->name('winkelwagen');
 Route::post('/winkelwagen/store', 'CartController@store');
 
 Route::delete('winkelwagen/{id}', 'CartController@destroy')->name('cart_destroy');
-
+Route::post('winkelwagen', 'CartController@update');
+Route::post('winkelwagen/order', 'CartController@cartToOrder')->name('cart_order');
 
 Route::get('/zoeken', 'SearchCatalogController@index');
 Route::post('/zoeken', 'SearchCatalogController@getProducts')->name('search_products');
