@@ -22,7 +22,7 @@
                         </div>
                     @endif
                <div class="row">
-                    <form method="post" action="{{ URL::to('dashboard/product/store') }}">
+                    <form method="post" action="{{ URL::to('dashboard/product/store') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                         <div class="col-md-8 col-md-offset-2">
                             <div class="row">
@@ -87,10 +87,17 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                <div class="form-group label-floating">
-                                    <label for="desc" class="control-label">Omschrijving</label>
-                                    <textarea id="desc" class="form-control" name="desc" required=""></textarea>
+                                    <div class="form-group label-floating">
+                                        <label for="desc" class="control-label">Omschrijving</label>
+                                        <textarea id="desc" class="form-control" name="desc" required=""></textarea>
+                                    </div>
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="form-group is-fileinput">
+                                      <label class="control-label" for="picture">Afbeelding</label>
+                                      <input id="picture" name="picture" type="file">
+                                      <input readonly="" class="form-control" placeholder="Zoeken..." type="text">
+                                    </div>
                                 </div>
                             </div>
                            <div class="row">
