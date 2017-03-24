@@ -10,7 +10,6 @@ use Validator;
 use Session;
 
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\File;
 
 use App\User;
 use App\Product;
@@ -112,7 +111,9 @@ class AdminProductController extends Controller
      */
     public function destroy(Product $product, Request $request) {
         if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
-            $product = Product::where('id', $request->id)->delete();
+            $product = Product::where('id', $request->id)->first();
+            Storage::delete($product->picture);
+            $product->delete();
         }
         return Redirect::to('/dashboard/producten');
     }

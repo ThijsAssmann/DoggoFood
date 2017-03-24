@@ -54,6 +54,7 @@ Route::group(['prefix' => 'dashboard'], function () {
 Route::get('/product/{id}', 'ProductController@show')->name('product');
 
 Route::get('/category/{slug}', 'CategoryController@show');
+Route::get('/category/{category}/{subcategory}', 'SubcategoryController@show');
 Route::get('header', 'CategoryController@all');
 
 Route::get('/about', 'AboutController@index')->name('about');
