@@ -37,8 +37,10 @@ class AdminOrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
-    {
-
+    public function destroy(Order $order, Request $request) {
+        if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
+            $order = Order::where('id', $request->id)->delete();
+        }
+        return Redirect::to('/dashboard/orders');
     }
 }

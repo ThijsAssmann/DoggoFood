@@ -72,3 +72,5 @@ Route::get('/afrekenen', 'CheckoutController@index');
 
 Route::get('/profiel', 'UserController@index')->name('profiel');
 Route::post('/profiel', 'UserController@update');
+
+Route::delete('/order/{id}', 'AdminOrderController@destroy')->name('order_destroy');
