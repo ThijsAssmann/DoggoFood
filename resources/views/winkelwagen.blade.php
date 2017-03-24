@@ -66,7 +66,7 @@
                             Totaal artikelen
                         </div>
                         <div class="col-lg-1">
-                            &euro;16,00
+                           &euro;{{($cartInfo['price'])}}
                         </div>
                     </div>
                     <div class="row">
@@ -84,7 +84,7 @@
                             </b>
                         </div>
                         <div class="col-lg-1">
-                            &euro;59,00
+                            &euro;{{($cartInfo['price']+5)}}
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,9 @@ class CartController extends Controller
     public function index()
     {
         $user = User::with('carts.containsProduct')->find(Auth::user()->id);
-        return view('winkelwagen', compact('user'));
+        $cartInfo = [];
+        $cartInfo['price'] = $this->calculatePrice($user->carts);
+        return view('winkelwagen', compact('user', 'cartInfo'));
     }
 
 
@@ -119,5 +121,13 @@ class CartController extends Controller
             }
         }
         return Redirect::to('/winkelwagen');
+    }
+
+    public function calculatePrice($carts){
+        $totaalPrijs = 0;
+        foreach($carts as $cart){
+            $totaalPrijs += (str_replace(',', '.',$cart->totalPrice));
+        }
+        return $totaalPrijs;
     }
 }
