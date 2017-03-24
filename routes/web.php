@@ -25,7 +25,7 @@ Route::group(['prefix' => 'dashboard'], function () {
 
     Route::get('product/edit/{id}', 'AdminProductController@show');
     Route::patch('product/update/{id}', 'AdminProductController@update');
-    Route::delete('product/{id}', 'AdminProductController@destroy')->name('destroy');
+    Route::delete('product/{id}', 'AdminProductController@destroy')->name('destroy_product');
     Route::get('product/create', 'AdminProductController@create');
     Route::post('product/store', 'AdminProductController@store');
 
