@@ -21,7 +21,7 @@ class AdminProductController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     * @author Rob Biemans
      * @return void
      */
     public function __construct()
@@ -31,7 +31,7 @@ class AdminProductController extends Controller
 
     /**
      * Show the application admin product page.
-     *
+     * @author Rob Biemans
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -55,7 +55,7 @@ class AdminProductController extends Controller
 
     /**
      * Update the product.
-     *
+     * @author Rob Biemans
      * @return Response
      */
     public function update(Product $product, Request $request) {
@@ -106,7 +106,7 @@ class AdminProductController extends Controller
 
     /**
      * destroy the product.
-     *
+     * @author Rob Biemans
      * @return Response
      */
     public function destroy(Product $product, Request $request) {
@@ -120,7 +120,7 @@ class AdminProductController extends Controller
 
     /**
      * Show the product single page
-     *
+     * @author Rob Biemans
      * @param  int  $id
      * @return Response
      */
@@ -140,7 +140,7 @@ class AdminProductController extends Controller
 
     /**
      * Get the prefered product category and put it into the session
-     *
+     * @author Rob Biemans
      * @return Response
      */
     public function post() {
@@ -151,7 +151,7 @@ class AdminProductController extends Controller
 
     /**
      * Show create form
-     *
+     * @author Rob Biemans
      * @return view
      */
     public function create(Request $request)
@@ -163,7 +163,7 @@ class AdminProductController extends Controller
 
     /**
      * Stores a new category
-     *
+     * @author Rob Biemans
      * @return mixed
      */
     public function store(Request $request)

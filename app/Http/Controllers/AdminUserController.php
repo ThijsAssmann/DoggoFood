@@ -12,7 +12,7 @@ class AdminUserController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     * @author Thijs Assmann
      * @return void
      */
     public function __construct()
@@ -22,7 +22,7 @@ class AdminUserController extends Controller
 
     /**
      * Show the application dashboard.
-     *
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -33,7 +33,7 @@ class AdminUserController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -60,6 +60,11 @@ class AdminUserController extends Controller
         return redirect('/profiel');
     }
 
+    /**
+     * Destroy the specified resource in storage.
+     * @author Thijs Assmann
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(User $user, Request $request) {
       if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
           $user = User::where('id', $request->id)->delete();
@@ -67,6 +72,11 @@ class AdminUserController extends Controller
       return Redirect::to('/dashboard/users');
     }
 
+    /**
+     * Update the specified resource in storage.
+     * @author Thijs Assmann
+     * @return \Illuminate\Http\Response
+     */
     public function updateUser(User $user, Request $request) {
       if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
 
@@ -76,6 +86,11 @@ class AdminUserController extends Controller
       return Redirect::to('/dashboard/users');
     }
 
+    /**
+     * Show the specified resource in storage.
+     * @author Thijs Assmann
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
       if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){

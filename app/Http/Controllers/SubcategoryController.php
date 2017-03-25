@@ -15,29 +15,9 @@ class SubcategoryController extends Controller
 {
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-
-    }
-
-    /**
-     * Show the application dashboard depends on requested url
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-    }
-
-    /**
-     * Show the application dashboard depends on requested url
-     *
-     * @return \Illuminate\Http\Response
+     * Show the products which belongs to the subcategory
+     * @author Rob Biemans
+     * @return View with Category/Subcategory/Products
      */
     public function show($cat,$subcat)
     {

@@ -11,7 +11,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
-     *
+     * @author Rob Biemans
      * @var array
      */
     protected $fillable = [
@@ -20,7 +20,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be hidden for arrays.
-     *
+     * @author Rob Biemans
      * @var array
      */
     protected $hidden = [
@@ -29,6 +29,7 @@ class User extends Authenticatable
 
     /**
      * Get the products record associated with the cart (user).
+     * @author Rob Biemans
      */
     public function carts()
     {

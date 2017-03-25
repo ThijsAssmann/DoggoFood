@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     * @author Rob Biemans
      * @return void
      */
     public function __construct()
@@ -21,8 +21,8 @@ class UserController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
+     * Show the user profile.
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -33,7 +33,7 @@ class UserController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
