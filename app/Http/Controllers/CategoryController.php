@@ -34,9 +34,9 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the application dashboard depends on requested url
-     *
-     * @return \Illuminate\Http\Response
+     * Show the category and it products
+     * @author Rob Biemans
+     * @return View with arrays
      */
     public function show($slug)
     {

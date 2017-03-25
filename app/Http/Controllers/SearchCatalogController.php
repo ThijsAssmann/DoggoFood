@@ -10,21 +10,10 @@ class SearchCatalogController extends Controller
 {
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * Show the search results page.
+     * @author Rob Biemans
+     * @return View with Products
      */
-    public function __construct()
-    {
-
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     public function index()
     {
         $products = Product::paginate(6);
@@ -33,8 +22,8 @@ class SearchCatalogController extends Controller
 
     /**
      * Show products based on input.
-     *
-     * @return \Illuminate\Http\Response
+     * @author Rob Biemans
+     * @return View with Products
      */
     public function getProducts(Request $request)
     {

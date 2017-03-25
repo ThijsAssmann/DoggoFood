@@ -8,11 +8,10 @@ class IndexController extends Controller
 {
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the index page with a few products.
+     * @author Thijs Assmann
+     * @return View and Products
      */
-
     public function index()
     {
         $products = Product::all()->random(3);

@@ -15,7 +15,7 @@ class ContactController extends Controller
 
     /**
      * Show the application contact page.
-     *
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -25,7 +25,7 @@ class ContactController extends Controller
 
     /**
      * Get results from form and put it into a email.
-     *
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)

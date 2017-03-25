@@ -13,7 +13,7 @@ class AdminOrderController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     * @author Thijs Assmann
      * @return void
      */
     public function __construct()
@@ -23,7 +23,7 @@ class AdminOrderController extends Controller
 
     /**
      * Show the application dashboard.
-     *
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -34,7 +34,7 @@ class AdminOrderController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order, Request $request) {

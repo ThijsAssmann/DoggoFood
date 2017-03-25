@@ -18,8 +18,8 @@ class CartController extends Controller
 {
 
     /**
-     * Show the current cart
-     *
+     * Show the index page
+     * @author Thijs Assmann
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -30,7 +30,11 @@ class CartController extends Controller
         return view('winkelwagen', compact('user', 'cartInfo'));
     }
 
-
+    /**
+     * Show the current cart
+     * @author Thijs Assmann
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -52,6 +56,11 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Update the cart
+     * @author Thijs Assmann
+     * @return \Illuminate\Http\Response
+     */
     public function update(Cart $cart, Request $request){
 
         if (User::where(['email' => Auth::User()->email])->first()){
@@ -80,7 +89,11 @@ class CartController extends Controller
         return Redirect::to('/winkelwagen');
     }
 
-
+    /**
+     * Destroy the cart
+     * @author Thijs Assmann
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(Request $request) {
         if (User::where(['email' => Auth::User()->email])->first()){
             $cart = Cart::where(['id' => $request->id, 'user_id' => Auth::User()->id])->delete();
@@ -88,6 +101,11 @@ class CartController extends Controller
         return Redirect::to('/winkelwagen');
     }
 
+    /**
+     * Move the cart to Order
+     * @author Thijs Assmann
+     * @return \Illuminate\Http\Response
+     */
     public function cartToOrder(Request $request){
         if (User::where(['email' => Auth::User()->email])->first()){
 
@@ -110,6 +128,11 @@ class CartController extends Controller
         return Redirect::to('/');
     }
 
+    /**
+     * Destroy the cart and its product in it
+     * @author Thijs Assmann
+     * @return \Illuminate\Http\Response
+     */
     public function destroy_cart($cart_id) {
 
         if (User::where(['email' => Auth::User()->email])->first()){
@@ -123,6 +146,11 @@ class CartController extends Controller
         return Redirect::to('/winkelwagen');
     }
 
+    /**
+     * Calculate the total cart price
+     * @author Thijs Assmann
+     * @return $totaalPrijs
+     */
     public function calculatePrice($carts){
         $totaalPrijs = 0;
         foreach($carts as $cart){
