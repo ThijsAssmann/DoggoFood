@@ -54,12 +54,17 @@ Route::group(['prefix' => 'dashboard'], function () {
 Route::get('/product/{id}', 'ProductController@show')->name('product');
 
 Route::get('/category/{slug}', 'CategoryController@show');
+Route::get('/category/{category}/{subcategory}', 'SubcategoryController@show');
 Route::get('header', 'CategoryController@all');
 
 Route::get('/about', 'AboutController@index')->name('about');
 
 Route::get('/winkelwagen', 'CartController@index')->name('winkelwagen');
 Route::post('/winkelwagen/store', 'CartController@store');
+
+Route::delete('winkelwagen/{id}', 'CartController@destroy')->name('cart_destroy');
+Route::post('winkelwagen', 'CartController@update');
+Route::post('winkelwagen/order', 'CartController@cartToOrder')->name('cart_order');
 
 Route::get('/zoeken', 'SearchCatalogController@index');
 Route::post('/zoeken', 'SearchCatalogController@getProducts')->name('search_products');
@@ -68,3 +73,5 @@ Route::get('/afrekenen', 'CheckoutController@index');
 
 Route::get('/profiel', 'UserController@index')->name('profiel');
 Route::post('/profiel', 'UserController@update');
+
+Route::delete('/order/{id}', 'AdminOrderController@destroy')->name('order_destroy');

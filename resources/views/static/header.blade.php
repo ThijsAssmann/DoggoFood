@@ -21,6 +21,9 @@
                         <li>
                             @foreach ($cat_list as $cat_item)
                                 <a href="{{url('/category')}}{{'/'.strtolower($cat_item->name)}}">{{$cat_item->name}}</a>
+                                  @foreach ($subcat_list as $subcat_item)
+                                    <a href="{{url('/category')}}{{'/'.strtolower($subcat_item->name)}}">{{$subcat_item->name}}</a>
+                                  @endforeach
                             @endforeach
                         </li>
                     </ul>
