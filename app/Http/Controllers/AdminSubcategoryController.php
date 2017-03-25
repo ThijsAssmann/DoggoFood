@@ -13,7 +13,7 @@ class AdminSubcategoryController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     * @author Rob Biemans
      * @return void
      */
     public function __construct()
@@ -23,7 +23,7 @@ class AdminSubcategoryController extends Controller
 
     /**
      * Show the application dashboard.
-     *
+     * @author Rob Biemans
      * @return \Illuminate\Http\Response
      */
     public function index($id)
@@ -40,7 +40,7 @@ class AdminSubcategoryController extends Controller
 
     /**
      * Show a single category
-     *
+     * @author Rob Biemans
      * @param  int  $id
      * @return Response
      */
@@ -58,7 +58,7 @@ class AdminSubcategoryController extends Controller
 
     /**
      * Update the category.
-     *
+     * @author Rob Biemans
      * @return Response
      */
     public function update(Subcategory $subcategory, Request $request) {
@@ -77,7 +77,7 @@ class AdminSubcategoryController extends Controller
 
     /**
      * destroy the product.
-     *
+     * @author Rob Biemans
      * @return Response
      */
     public function destroy(Subcategory $subcategory, Request $request) {
@@ -89,7 +89,7 @@ class AdminSubcategoryController extends Controller
 
     /**
      * Show create form
-     *
+     * @author Rob Biemans
      * @return view
      */
     public function create(Request $request)
@@ -99,7 +99,7 @@ class AdminSubcategoryController extends Controller
 
     /**
      * Stores a new subcategory
-     *
+     * @author Rob Biemans
      * @return mixed
      */
     public function store(Request $request)

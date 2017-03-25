@@ -10,7 +10,7 @@ class Order extends Model
 
     /**
      * The attributes that are mass assignable.
-     *
+     * @author Rob Biemans
      * @var array
      */
     protected $fillable = [

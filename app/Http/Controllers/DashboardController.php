@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     * @author Rob Biemans
      * @return void
      */
     public function __construct()
@@ -21,7 +21,7 @@ class DashboardController extends Controller
 
     /**
      * Show the application dashboard. if the user is an admin else redirect to previous page
-     *
+     * @author Rob Biemans
      * @return \Illuminate\Http\Response
      */
     public function index()

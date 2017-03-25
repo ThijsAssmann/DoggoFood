@@ -14,7 +14,7 @@ class AdminCategoryController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     * @author Rob Biemans
      * @return void
      */
     public function __construct()
@@ -24,7 +24,7 @@ class AdminCategoryController extends Controller
 
     /**
      * Show the application dashboard.
-     *
+     * @author Rob Biemans
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -36,7 +36,7 @@ class AdminCategoryController extends Controller
 
     /**
      * Show a single category
-     *
+     * @author Rob Biemans
      * @param  int  $id
      * @return Response
      */
@@ -54,7 +54,7 @@ class AdminCategoryController extends Controller
 
     /**
      * Update the category.
-     *
+     * @author Rob Biemans
      * @return Response
      */
     public function update(Category $category, Request $request) {
@@ -73,7 +73,7 @@ class AdminCategoryController extends Controller
 
     /**
      * destroy the product.
-     *
+     * @author Rob Biemans
      * @return Response
      */
     public function destroy(Category $category, Request $request) {
@@ -85,7 +85,7 @@ class AdminCategoryController extends Controller
 
     /**
      * Show create form
-     *
+     * @author Rob Biemans
      * @return view
      */
     public function create(Request $request)
@@ -95,7 +95,7 @@ class AdminCategoryController extends Controller
 
     /**
      * Stores a new category
-     *
+     * @author Rob Biemans
      * @return mixed
      */
     public function store(Request $request)

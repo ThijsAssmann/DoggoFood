@@ -10,7 +10,7 @@ class Cart extends Model
 
     /**
      * The attributes that are mass assignable.
-     *
+     * @author Rob Biemans
      * @var array
      */
     protected $fillable = [
@@ -19,6 +19,7 @@ class Cart extends Model
 
     /**
      * Get the products record associated with the cart (user).
+     * @author Rob Biemans
      */
     public function containsProduct()
     {
