@@ -19,7 +19,8 @@ class AppServiceProvider extends ServiceProvider
     {
         if(Schema::hasTable('category') || Schema::hasTable('subcategory')){
           $categories = Category::all();
-          View::share(['cat_list' => $categories]);
+          $subcategories = Subcategory::all();
+          View::share(['cat_list' => $categories, 'subcat_list' => $subcategories]);
         }
     }
 

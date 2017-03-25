@@ -27,10 +27,10 @@
                  <td>{{$category->name}}</td>
                  <td>{{$category->desc}}</td>
                  <td>
-                    <a class="btn btn-raised btn-warning btn-doggofood" href="{{ URL::to('dashboard/category/edit/' . $category->id) }}">Aanpassen</a>
-                    {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['category_destroy', $category->id], 'style' => 'display: inline-block;','onsubmit' => "return confirm('Record verwijderen?')"]) }}
-                        {{ Form::submit('Verwijderen', ['class' => 'btn btn-raised btn-danger btn-doggofood']) }}
-                    {{ Form::close() }}
+                   <a class="btn btn-raised btn-warning btn-doggofood" href="{{ URL::to('dashboard/category/edit/' . $category->id) }}">Aanpassen</a>
+                   {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['category_destroy', $category->id], 'style' => 'display: inline-block;','onsubmit' => "return confirm('Record verwijderen?')"]) }}
+                   {{ Form::submit('Verwijderen', ['class' => 'btn btn-raised btn-danger btn-doggofood']) }}
+                   {{ Form::close() }}
                  </td>
                </tr>
                @endforeach

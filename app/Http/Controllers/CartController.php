@@ -11,6 +11,7 @@ use Session;
 use App\User;
 use App\Cart;
 use App\Product;
+use App\Order;
 
 
 class CartController extends Controller
@@ -24,7 +25,9 @@ class CartController extends Controller
     public function index()
     {
         $user = User::with('carts.containsProduct')->find(Auth::user()->id);
-        return view('winkelwagen', compact('user'));
+        $cartInfo = [];
+        $cartInfo['price'] = $this->calculatePrice($user->carts);
+        return view('winkelwagen', compact('user', 'cartInfo'));
     }
 
 
@@ -49,32 +52,82 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    /*
-    public function update(Request $request, $id)
-    {
-        // Validation on max quantity
-        $validator = Validator::make($request->all(), [
-            'quantity' => 'required|numeric|between:1,5'
-        ]);
-         if ($validator->fails()) {
-            session()->flash('error_message', 'Quantity must be between 1 and 5.');
-            return response()->json(['success' => false]);
-         }
-        Cart::update($id, $request->quantity);
-        session()->flash('success_message', 'Quantity was updated successfully!');
-        return response()->json(['success' => true]);
+    public function update(Cart $cart, Request $request){
+
+        if (User::where(['email' => Auth::User()->email])->first()){
+
+            $this->validate($request, [
+                'count' => 'required|numeric|between:1,5',
+                'cart_id' =>  'required|numeric',
+                'totalPrice' =>  'required',
+            ]);
+
+            $cart = Cart::where(['id' => $request->cart_id])->first();
+
+            if ($request->count > $cart->count) {
+                $oldPrice = (str_replace(',', '.',$request->totalPrice)/$cart->count);
+                $newPrice = (str_replace(',', '.',$request->totalPrice)*$request->count);
+            } else if ($request->count < $cart->count) {
+                $oldPrice = (str_replace(',', '.',$request->totalPrice)/$cart->count);
+                $newPrice = (str_replace(',', '.',$request->totalPrice)/$cart->count);
+            }
+
+            $cart->count = $request->count;
+            $cart->totalPrice = $newPrice;
+
+            $cart->save();
+        }
+        return Redirect::to('/winkelwagen');
     }
 
-    public function destroy($id)
-    {
-        Cart::remove($id);
-        return redirect('cart')->withSuccessMessage('Item has been removed!');
+
+    public function destroy(Request $request) {
+        if (User::where(['email' => Auth::User()->email])->first()){
+            $cart = Cart::where(['id' => $request->id, 'user_id' => Auth::User()->id])->delete();
+        }
+        return Redirect::to('/winkelwagen');
     }
 
-    public function emptyCart()
-    {
-        Cart::destroy();
-        return redirect('cart')->withSuccessMessage('Your cart has been cleared!');
+    public function cartToOrder(Request $request){
+        if (User::where(['email' => Auth::User()->email])->first()){
+
+            $cart = Cart::all()->where('user_id', '=', Auth::User()->id);
+
+            foreach($cart as $c) {
+                Order::create(
+                    [
+                        'user_id' => $c->user_id,
+                        'product_id' => $c->product_id,
+                        'count' => $c->count,
+                        'totalPrice' => str_replace(',', '.', $c->totalPrice),
+                        'statusCode' => 'In behandeling',
+                    ]
+                );
+            }
+
+           $this->destroy_cart($request->cart_id);
+        }
+        return Redirect::to('/');
     }
-    */
+
+    public function destroy_cart($cart_id) {
+
+        if (User::where(['email' => Auth::User()->email])->first()){
+
+            $cart = Cart::all()->where('user_id', '=', Auth::User()->id);
+
+            foreach($cart as $c) {
+                $c->delete();
+            }
+        }
+        return Redirect::to('/winkelwagen');
+    }
+
+    public function calculatePrice($carts){
+        $totaalPrijs = 0;
+        foreach($carts as $cart){
+            $totaalPrijs += (str_replace(',', '.',$cart->totalPrice));
+        }
+        return $totaalPrijs;
+    }
 }
