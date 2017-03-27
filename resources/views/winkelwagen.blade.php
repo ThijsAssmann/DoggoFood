@@ -36,13 +36,15 @@
                                 </td>
                                 <td class="col-lg-2">
                                     <p class="cartCenter">
-                                        {{$cart->containsProduct[0]->name}}
+                                        {{ $cart->containsProduct[0]['name'] }}
                                     </p>
                                 </td>
                                 <td class="col-lg-1">
                                     {{ Form::open(array('action' => 'CartController@update', 'method' => 'POST')) }}
-                                        <input type="number" class="form-control hidden" id="cart_id" name="cart_id" required="" value="{{$cart->id}}">
-                                        <input type="text" class="form-control hidden" id="totalPrice" name="totalPrice" required="" value="{{$cart->totalPrice}}">
+                                        <div class="form-group hidden">
+                                            <input type="number" class="form-control" id="cart_id" name="cart_id" required="" value="{{$cart->id}}">
+                                            <input type="text" class="form-control" id="totalPrice" name="totalPrice" required="" value="{{$cart->totalPrice}}">
+                                        </div>
                                         {!! Form::select('count',['1'=>'1','2' => '2','3' => '3','4' => '4','5' => '5'], $cart->count, array('onchange' => 'submit()','class' => 'fakeinput form-control') ) !!}
                                     {{ Form::close() }}
                                 </td>
@@ -94,7 +96,6 @@
                             <input type="number" class="form-control hidden" id="cart_id" name="cart_id" required="" value="{{$cart->id}}">
                             {{ Form::submit('Bestellen', ['class' => 'btn btn-raised btn-primary']) }}
                         {{ Form::close() }}
-                        <a href="#" class="btn btn-raised btn-danger">Annuleren</a>
                     </div>
                 </div>
             </div>
