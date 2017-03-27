@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col-lg-2">
-            <img class="img-rounded" src="{{storage_path('app/')}}{{$product->picture}}" alt="Generic placeholder image" width="150" height="150">
+                <img class="img-rounded" src="{{ asset('../storage/app/'.$product->picture) }}" alt="Generic placeholder image" width="150" height="150">
             </div>
             <div class="prod_title_desc col-lg-8">
                 <h2>{{$product->name}}</h2>

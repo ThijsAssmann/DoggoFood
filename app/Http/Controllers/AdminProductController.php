@@ -77,14 +77,19 @@ class AdminProductController extends Controller
 
             $picture = Input::file('picture');
 
-            $file_extension = '.' . strtolower($picture->getClientOriginalExtension());
+            if($picture != null) {
+                $file_extension = '.' . strtolower($picture->getClientOriginalExtension());
 
-            $path = 'products';
-            $filename = time() . uniqid() . $file_extension;
+                $path = 'products';
+                $filename = time() . uniqid() . $file_extension;
 
-            $upload_success = $picture->storeAs(
-                $path, $filename
-            );
+                $upload_success = $picture->storeAs(
+                    $path, $filename
+                );
+            } else {
+                Session::flash('error', 'Geen afbeelding aanwezig!');
+                return Redirect::back();
+            }
 
             $product = Product::where(['id' => $request->id])->first();
 
@@ -184,14 +189,19 @@ class AdminProductController extends Controller
 
         $picture = Input::file('picture');
 
-        $file_extension = '.' . strtolower($picture->getClientOriginalExtension());
+        if($picture != null) {
+            $file_extension = '.' . strtolower($picture->getClientOriginalExtension());
 
-        $path = 'products';
-        $filename = time() . uniqid() . $file_extension;
+            $path = 'products';
+            $filename = time() . uniqid() . $file_extension;
 
-        $upload_success = $picture->storeAs(
-            $path, $filename
-        );
+            $upload_success = $picture->storeAs(
+                $path, $filename
+            );
+        } else {
+            Session::flash('error', 'Geen afbeelding aanwezig!');
+            return Redirect::back();
+        }
 
         Product::create(
             [
