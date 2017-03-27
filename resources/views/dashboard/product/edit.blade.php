@@ -22,6 +22,9 @@
                         </div>
                     @endif
                <div class="row">
+                   <div class="col-lg-2">
+                       <img class="img-rounded" src="{{ asset('../storage/app/'.$product->picture) }}" alt="Generic placeholder image" width="150" height="150">
+                   </div>
                     <form method="post" action="{{ URL::to('dashboard/product/update/' . $product->id) }}" enctype="multipart/form-data">
                     {{ method_field('patch') }}
                     {{ csrf_field() }}
