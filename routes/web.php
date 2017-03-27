@@ -48,7 +48,9 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('subcategory/create', 'AdminSubcategoryController@create');
     Route::post('subcategory/store', 'AdminSubcategoryController@store');
 
+    Route::get('order/edit/{id}', 'AdminOrderController@show');
     Route::get('orders', 'AdminOrderController@index')->name('orders');
+    Route::patch('order/update/{id}', 'AdminOrderController@update');
 });
 /**************************/
 Route::get('/product/{id}', 'ProductController@show')->name('product');

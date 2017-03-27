@@ -36,6 +36,7 @@
                <td>{{$order->statusCode}}</td>
                <td>{{$order->shipping_id}}</td>
                <td>
+                 <a class="btn btn-raised btn-warning btn-doggofood" href="order/edit/{{$order->id}}">Aanpassen</a>
                  {{ Form::open(['id' => 'delete','method' => 'DELETE', 'route' => ['order_destroy', $order->id], 'style' => 'display: inline-block;','onsubmit' => "return confirm('Record verwijderen?')"]) }}
                  {{ Form::submit('Verwijderen', ['class' => 'btn btn-raised btn-danger btn-doggofood']) }}
                  {{ Form::close() }}
