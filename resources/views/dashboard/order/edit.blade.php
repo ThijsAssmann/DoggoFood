@@ -37,8 +37,11 @@
                                    <input type="text" class="form-control" id="totalPrice" name="totalPrice" required="" value="{{$order->totalPrice}}">
                                </div>
                                <label for="count" class="control-label">Aantal</label>
-                               {!! Form::select('count',['1'=>'1','2' => '2','3' => '3','4' => '4','5' => '5'], $order->count, array('onchange' => 'submit()','class' => 'fakeinput form-control') ) !!}
+                               {!! Form::select('count',['1'=>'1','2' => '2','3' => '3','4' => '4','5' => '5','6' => '6','7' => '7','8' => '8','9' => '9','10' => '10'], $order->count, array('onchange' => 'submit()','class' => 'fakeinput form-control') ) !!}
                            </div>
+                       <div class="row">
+                           <div class="col-md-2"><button class="btn btn-raised btn-primary">Aanpassen</button></div>
+                       </div>
                    </form>
                </div>
            </div>

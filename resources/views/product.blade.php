@@ -24,7 +24,7 @@
         <div class="row">
 
             {!! Form::open(array('action' => 'CartController@store','class' => 'nobottommargin', 'method' => 'post')) !!}
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-4 col-md-offset-2">
                     <div class="row">
                         <div class="col-md-5">
                             <div class="form-group label-floating">
@@ -32,7 +32,7 @@
                             </div>
                             <div class="form-group label-floating">
                                 <label for="amount" class="control-label">Aantal</label>
-                                <input type="number" class="form-control" id="amount" name="amount" required="">
+                                <input type="number" class="form-control" id="amount" name="amount" required="" min="1" max="10">
                                 <input type="number" class="form-control hidden" id="id" name="id" required="" value="{{$product->id}}">
                             </div>
                         </div>

@@ -45,7 +45,7 @@
                                             <input type="number" class="form-control" id="cart_id" name="cart_id" required="" value="{{$cart->id}}">
                                             <input type="text" class="form-control" id="totalPrice" name="totalPrice" required="" value="{{$cart->totalPrice}}">
                                         </div>
-                                        {!! Form::select('count',['1'=>'1','2' => '2','3' => '3','4' => '4','5' => '5'], $cart->count, array('onchange' => 'submit()','class' => 'fakeinput form-control') ) !!}
+                                        {!! Form::select('count',['1'=>'1','2' => '2','3' => '3','4' => '4','5' => '5','6' => '6','7' => '7','8' => '8','9' => '9','10' => '10'], $cart->count, array('onchange' => 'submit()','class' => 'fakeinput form-control') ) !!}
                                     {{ Form::close() }}
                                 </td>
                                 <td>
