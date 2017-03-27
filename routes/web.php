@@ -48,7 +48,9 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('subcategory/create', 'AdminSubcategoryController@create');
     Route::post('subcategory/store', 'AdminSubcategoryController@store');
 
+    Route::get('order/edit/{id}', 'AdminOrderController@show');
     Route::get('orders', 'AdminOrderController@index')->name('orders');
+    Route::patch('order/update/{id}', 'AdminOrderController@update');
 });
 /**************************/
 Route::get('/product/{id}', 'ProductController@show')->name('product');
@@ -58,6 +60,7 @@ Route::get('/category/{category}/{subcategory}', 'SubcategoryController@show');
 Route::get('header', 'CategoryController@all');
 
 Route::get('/about', 'AboutController@index')->name('about');
+Route::get('/orderSent', 'orderSentController@index');//->name('orderSent');
 
 Route::get('/winkelwagen', 'CartController@index')->name('winkelwagen');
 Route::post('/winkelwagen/store', 'CartController@store');
