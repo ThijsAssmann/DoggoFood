@@ -68,8 +68,8 @@
                     <div class="row">
                         <div class="col-md-5">
                         <div class="form-group label-floating">
-                            <label for="message" class="control-label">Bericht *</label>
-                            <textarea id="message" class="form-control" name="message" required=""></textarea>
+                            <label for="contact_message" class="control-label">Bericht *</label>
+                            <textarea id="contact_message" class="form-control" name="contact_message" required=""></textarea>
                         </div>
                         </div>
                     </div>

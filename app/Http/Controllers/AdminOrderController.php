@@ -68,7 +68,9 @@ class AdminOrderController extends Controller
                 $oldPrice = (str_replace(',', '.',$request->totalPrice)/$order->count);
                 $newPrice = (str_replace(',', '.',$request->totalPrice)/$order->count);
             }
-
+            else{
+                $newPrice = $request->totalPrice;
+            }
             $order->count = $request->count;
             $order->totalPrice = $newPrice;
 
