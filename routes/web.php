@@ -58,6 +58,7 @@ Route::get('/category/{category}/{subcategory}', 'SubcategoryController@show');
 Route::get('header', 'CategoryController@all');
 
 Route::get('/about', 'AboutController@index')->name('about');
+Route::get('/orderSent', 'orderSentController@index');//->name('orderSent');
 
 Route::get('/winkelwagen', 'CartController@index')->name('winkelwagen');
 Route::post('/winkelwagen/store', 'CartController@store');

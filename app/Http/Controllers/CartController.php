@@ -125,7 +125,7 @@ class CartController extends Controller
 
            $this->destroy_cart($request->cart_id);
         }
-        return Redirect::to('/');
+        return Redirect::to('/orderSent');
     }
 
     /**
