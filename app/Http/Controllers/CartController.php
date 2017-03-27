@@ -80,7 +80,9 @@ class CartController extends Controller
                 $oldPrice = (str_replace(',', '.',$request->totalPrice)/$cart->count);
                 $newPrice = (str_replace(',', '.',$request->totalPrice)/$cart->count);
             }
-
+            else{
+                $newPrice = $request->totalPrice;
+            }
             $cart->count = $request->count;
             $cart->totalPrice = $newPrice;
 
