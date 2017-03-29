@@ -38,26 +38,28 @@ class AdminUserController extends Controller
      */
     public function update(Request $request)
     {
-        $this->validate($request, [
-            'street' => 'required',
-            'street_number' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zipcode' => 'required',
-            'country' => 'required',
-        ]);
+        if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
+            $this->validate($request, [
+                'street' => 'required',
+                'street_number' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'zipcode' => 'required',
+                'country' => 'required',
+            ]);
 
-        $user = User::all()->where('email', '=', Auth::user()->email)->first();
+            $user = User::all()->where('email', '=', Auth::user()->email)->first();
 
-        $user->street = $request->street;
-        $user->street_number = $request->street_number;
-        $user->city = $request->city;
-        $user->state = $request->state;
-        $user->zipcode = $request->zipcode;
-        $user->country = $request->country;
-        $user->save();
+            $user->street = $request->street;
+            $user->street_number = $request->street_number;
+            $user->city = $request->city;
+            $user->state = $request->state;
+            $user->zipcode = $request->zipcode;
+            $user->country = $request->country;
+            $user->save();
 
-        return redirect('/profiel');
+            return redirect('/profiel');
+        }
     }
 
     /**

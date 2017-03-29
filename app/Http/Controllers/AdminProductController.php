@@ -173,52 +173,53 @@ class AdminProductController extends Controller
      */
     public function store(Request $request)
     {
+        if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
+            $this->validate($request, [
+                'name' => 'required|max:64',
+                'weight' => 'required|numeric|max:255',
+                'weight_unit' => 'required|max:10',
+                'stock' => 'required|numeric',
+                'price' => 'required|numeric',
+                'sales_price' => 'required|numeric',
+                'cat' => 'required|max:32',
+                'subcat' => 'required|max:32',
+                'desc' => 'required|max:255',
+                'picture' => 'max:3072|mimes:png,gif,jpeg,jpg',
+            ]);
 
-        $this->validate($request, [
-            'name' => 'required|max:64',
-            'weight' => 'required|numeric|max:255',
-            'weight_unit' => 'required|max:10',
-            'stock' => 'required|numeric',
-            'price' => 'required|numeric',
-            'sales_price' => 'required|numeric',
-            'cat' => 'required|max:32',
-            'subcat' => 'required|max:32',
-            'desc' => 'required|max:255',
-            'picture' => 'max:3072|mimes:png,gif,jpeg,jpg',
-        ]);
+            $picture = Input::file('picture');
 
-        $picture = Input::file('picture');
+            if($picture != null) {
+                $file_extension = '.' . strtolower($picture->getClientOriginalExtension());
 
-        if($picture != null) {
-            $file_extension = '.' . strtolower($picture->getClientOriginalExtension());
+                $path = 'products';
+                $filename = time() . uniqid() . $file_extension;
 
-            $path = 'products';
-            $filename = time() . uniqid() . $file_extension;
+                $upload_success = $picture->storeAs(
+                    $path, $filename
+                );
+            } else {
+                Session::flash('error', 'Geen afbeelding aanwezig!');
+                return Redirect::back();
+            }
 
-            $upload_success = $picture->storeAs(
-                $path, $filename
+            Product::create(
+                [
+                    'name' => $request->name,
+                    'weight' => $request->weight,
+                    'weight_unit' => $request->weight_unit,
+                    'stock' => $request->stock,
+                    'price' => $request->price,
+                    'sales_price' => $request->sales_price,
+                    'cat' => $request->cat,
+                    'subcat' => $request->subcat,
+                    'desc' => $request->desc,
+                    'picture' => $upload_success,
+                ]
             );
-        } else {
-            Session::flash('error', 'Geen afbeelding aanwezig!');
-            return Redirect::back();
+
+            return Redirect::to('/dashboard/producten');
         }
-
-        Product::create(
-            [
-                'name' => $request->name,
-                'weight' => $request->weight,
-                'weight_unit' => $request->weight_unit,
-                'stock' => $request->stock,
-                'price' => $request->price,
-                'sales_price' => $request->sales_price,
-                'cat' => $request->cat,
-                'subcat' => $request->subcat,
-                'desc' => $request->desc,
-                'picture' => $upload_success,
-            ]
-        );
-
-        return Redirect::to('/dashboard/producten');
     }
 
 }
