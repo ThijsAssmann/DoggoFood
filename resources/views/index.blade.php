@@ -23,7 +23,7 @@
   <div class="row">
       @foreach ($products as $product)
           <div class="col-lg-4">
-            <img class="img-circle" src="{{ asset('../storage/app/'.$product->picture) }}" alt="Generic placeholder image" width="140" height="140">
+            <img class="img-circle" src="@if (strpos($product->picture, 'http') !== false) {{ $product->picture }} @else {{ asset('../storage/app/'.$product->picture) }} @endif" alt="Generic placeholder image" width="140" height="140">
             <h2>{{$product->name}}</h2>
             <p>{{$product->desc}}</p>
             <p><a class="btn btn-default" href="{{ URL::to('product/' . $product->id) }}" role="button">Bekijk details &raquo;</a></p>
