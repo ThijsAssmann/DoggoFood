@@ -14,26 +14,6 @@ class CategoryController extends Controller
 {
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-
-    }
-
-    /**
-     * Show the application dashboard depends on requested url
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-    }
-
-    /**
      * Show the category and it products
      * @author Rob Biemans
      * @return View with arrays

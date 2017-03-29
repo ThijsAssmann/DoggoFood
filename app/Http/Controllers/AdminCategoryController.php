@@ -100,20 +100,21 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        if (User::where(['admin' => 1, 'email' => Auth::User()->email])->first()){
+            $this->validate($request, [
+                'name' => 'required|max:32',
+                'desc' => 'required|max:510',
+            ]);
 
-        $this->validate($request, [
-            'name' => 'required|max:32',
-            'desc' => 'required|max:510',
-        ]);
+            Category::create(
+                [
+                    'name' => $request->name,
+                    'desc'   => $request->desc,
+                ]
+            );
 
-        Category::create(
-            [
-                'name' => $request->name,
-                'desc'   => $request->desc,
-            ]
-        );
-
-        return Redirect::to('/dashboard/categorys');
+            return Redirect::to('/dashboard/categorys');
+        }
     }
 
 }
