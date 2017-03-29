@@ -37,23 +37,29 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'amount' => 'required|numeric|between:1,100',
-            'id' => 'required|numeric',
-        ]);
+        if (Auth::check()){
+            $this->validate($request, [
+                'amount' => 'required|numeric|between:1,100',
+                'id' => 'required|numeric',
+            ]);
 
-        $product = Product::all()->where('id','=',$request->id)->first();
+            $product = Product::all()->where('id','=',$request->id)->first();
 
-        $totalPrice = number_format(($request->amount*$product->price), 2, ',', '.');
+            $totalPrice = number_format(($request->amount*$product->price), 2, ',', '.');
 
-        Cart::create([
-            'user_id' => Auth::user()->id,
-            'count' => $request->amount,
-            'product_id' => $request->id,
-            'totalPrice' => $totalPrice,
-        ]);
+            Cart::create([
+                'user_id' => Auth::user()->id,
+                'count' => $request->amount,
+                'product_id' => $request->id,
+                'totalPrice' => $totalPrice,
+            ]);
+            $request->session()->flash('success', 'Product toegevoegd aan winkelwagen.');
+            return redirect()->back();
+        } else {
+            $request->session()->flash('error', 'Je moet ingelogd zijn om te kunnen shoppen!');
+            return redirect()->back();
+        }
 
-        return redirect()->back();
     }
 
     /**

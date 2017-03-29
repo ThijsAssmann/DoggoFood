@@ -42,6 +42,17 @@
                             <button class="btn btn-raised btn-primary">Voeg toe aan  <i class="material-icons">add_shopping_cart</i></button>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @if(Session::has('success'))
+                                <p class="text-success">{!! Session::get('success') !!}</p>
+                            @endif
+
+                            @if(Session::has('error'))
+                                <p class="text-danger">{!! Session::get('error') !!}</p>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             {!! Form::close() !!}
         </div>
