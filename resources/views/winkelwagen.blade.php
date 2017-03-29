@@ -32,7 +32,7 @@
                             @foreach($user->carts as $cart)
                             <tr>
                                 <td class="col-lg-2">
-                                    <img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="100">
+                                    <img class="img-rounded" src="@if (strpos($cart->containsProduct[0]['picture'], 'http') !== false) {{ $cart->containsProduct[0]['picture'] }} @else {{ asset('../storage/app/'.$cart->containsProduct[0]['picture']) }} @endif" alt="Generic placeholder image" width="140" height="100">
                                 </td>
                                 <td class="col-lg-2">
                                     <p class="cartCenter">
