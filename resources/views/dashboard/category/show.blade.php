@@ -26,7 +26,7 @@
 
             <div class="col-lg-4">
                 <a href="{{ Route('product', ['id' => $product->id]) }}">
-                    <img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
+                    <img class="img-rounded" src="@if (strpos($product->picture, 'http') !== false) {{ $product->picture }} @else {{ asset('../storage/app/'.$product->picture) }} @endif" alt="Generic placeholder image" width="200" height="200">
                     <h2>{{$product->name}}</h2>
                 </a>
                 <p>{{$product->weight}} {{$product->weight_unit}}<br>Prijs: &euro;{{str_replace(".", ",", $product->price)}}</p>

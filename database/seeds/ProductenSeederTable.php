@@ -22,6 +22,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Kip',
             'weight' => '15',
             'weight_unit' => 'kg',
+            'picture' => 'https://cdn.ekoplaza.nl/ekoplaza/producten/large/8714265973789.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -34,6 +35,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Kip',
             'weight' => '12.5',
             'weight_unit' => 'kg',
+            'picture' => 'http://static.webshopapp.com/shops/050113/files/050083086/canex-canex-adult-brocks.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -46,6 +48,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Kip',
             'weight' => '15',
             'weight_unit' => 'kg',
+            'picture' => 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/5/0/2/7/9200000061637205.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -58,6 +61,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Lam',
             'weight' => '15',
             'weight_unit' => 'kg',
+            'picture' => 'https://www.brekz.nl/22562/prins-procare-lam-rijst.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -70,6 +74,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Lam',
             'weight' => '10',
             'weight_unit' => 'kg',
+            'picture' => 'https://www.brekz.nl/22561/prins-lam-rijst-hypo-allergic.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -82,6 +87,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Lam',
             'weight' => '12.5',
             'weight_unit' => 'kg',
+            'picture' => 'http://listodierenvoeding.nl/wp-content/uploads/2015/10/lamrijst12kgklein.png',
         ]);
 
         DB::table('product')->insert([
@@ -94,6 +100,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Rund',
             'weight' => '10',
             'weight_unit' => 'kg',
+            'picture' => 'http://www.biofooddiervoeding.nl/images/articles/image/g/voer/diner10kklein.png',
         ]);
 
         DB::table('product')->insert([
@@ -106,6 +113,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Rund',
             'weight' => '12.5',
             'weight_unit' => 'kg',
+            'picture' => 'https://www.voerwijzer.com/wp-content/uploads/biofood-biofood-krokant.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -118,6 +126,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Rund',
             'weight' => '15',
             'weight_unit' => 'kg',
+            'picture' => 'https://www.discount4pets.nl/media/catalog/product/f/a/farm_food_classic_15kg.jpg',
         ]);
 
         // Snacks
@@ -131,6 +140,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Varken',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'https://static.webshopapp.com/shops/003184/files/014700277/competition-varkensoren-gedroogd-100-stuks.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -143,6 +153,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Varken',
             'weight' => '200',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/varkensdarm-1-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -155,6 +166,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Varken',
             'weight' => '500',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/oorschelp-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -167,6 +179,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Rund',
             'weight' => '1',
             'weight_unit' => 'kg',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/mixzak-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -179,6 +192,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Rund',
             'weight' => '500',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/rundvleesplaatjes-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -191,6 +205,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Rund',
             'weight' => '500',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/pensstaaf-rund-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -203,6 +218,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Wild',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2016/08/reeoren-vacht-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -215,6 +231,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Wild',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2016/08/vleesrepen-konijn-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -227,6 +244,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Wild',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2016/08/vleesrepen-wild-433x325.jpg',
         ]);
 
         // Training
@@ -240,6 +258,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Lam',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/3-Lamsvl.-blokjes-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -252,6 +271,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 7,
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/4-Eendevl.blokjes-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -264,6 +284,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Wild',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/1-paarde.blokjes-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -276,6 +297,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 8,
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2014/12/1-paarde.blokjes-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -288,6 +310,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Kip',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2016/08/kipfilet-blokjes-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -300,6 +323,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Kip',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2016/08/kippenhartjes-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -312,6 +336,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Rund',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2016/05/runderlong-trainer-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -324,6 +349,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Rund',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2015/10/runderlever-433x325.jpg',
         ]);
 
         DB::table('product')->insert([
@@ -336,6 +362,7 @@ class ProductenSeederTable extends Seeder
             'subcat' => 'Gevogelte',
             'weight' => '250',
             'weight_unit' => 'gram',
+            'picture' => 'http://www.snacks4dogs.nl/wp-content/uploads/2017/03/vleesblokjes-433x325.jpg',
         ]);
     }
 }
